@@ -40,6 +40,7 @@ import { FormularioPeliculaComponent } from './peliculas/formulario-pelicula/for
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
 import { AutocompleteActoresComponent } from './actores/autocomplete-actores/autocomplete-actores.component';
 //import "leaflet/dist/images/marker-shadow.png";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { AutocompleteActoresComponent } from './actores/autocomplete-actores/aut
     ReactiveFormsModule,
     LeafletModule,
     FormsModule,
+    HttpClientModule,
     MarkdownModule.forRoot()
   ],
   providers: [],
