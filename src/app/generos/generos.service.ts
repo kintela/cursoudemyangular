@@ -1,7 +1,8 @@
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y/input-modality/input-modality-detector';
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GeneroDTO } from './genero';
+import { GeneroDTO, GeneroCreacionDTO } from './genero';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ export class GenerosService {
 
   constructor(private http: HttpClient) { }
 
-  public obtenerTodos(): GeneroDTO[] {
-    return this.http.get()
+  private apiURL=environment.apiURL + 'generos';
+
+  public obtenerTodos(): Observable<GeneroDTO[]> {
+    return this.http.get<GeneroDTO[]>(this.apiURL);
+  }
+
+  public crear(genero:GeneroCreacionDTO){
+    return this.http.post(this.apiURL,genero);
   }
 }
